@@ -13,6 +13,7 @@ console.log(citySchema.parse(lisbon));
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <h1>Zod</h1>
+    <h3> City: ${lisbon.name}</h3>
   </div>
 `
 
