@@ -29,6 +29,7 @@ const activities = [
 const citySchema = z
   .object({
     id: z.union([z.string(), z.number()]), //string | number
+    idExample: z.string().or(z.number()).optional(), // another example of union
     name: z.string(), // string
     population: z.number().gt(0), // number and greater than 0
     area: z.string().min(5), //min length
