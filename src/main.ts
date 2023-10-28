@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 
 import { z } from "zod";
 
@@ -11,17 +11,22 @@ const citySchema = z.object({
   name: z.string(), // string
   population: z.number(), // number
   area: z.string().min(5), //min length
+  rating: z.string().optional(), //optional stuff
 });
 
-type City = z.infer<typeof citySchema>;
+type City = z.infer<typeof citySchema>; // creating the type from z schema 
 
-const city = { name: "Castelo Branco", population: 177912, area: "1 438 km²" } as City;
+const city = {
+  name: "Castelo Branco",
+  population: 177912,
+  area: "1 438 km²",
+} as City;
 
 console.log(citySchema.parse(city));
 
 console.log(citySchema.safeParse(city)); //returns success
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <h1>Zod Learning</h1>
     <h3> City: ${city.name}</h3>
@@ -30,5 +35,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <li>Area: ${city.area}</li>
     </ul>
   </div>
-`
-
+`;
