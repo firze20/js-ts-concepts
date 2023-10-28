@@ -9,7 +9,7 @@ import { z } from "zod";
 
 const citySchema = z.object({
   name: z.string(), // string
-  population: z.number(), // number
+  population: z.number().gt(0), // number and greater than 0
   area: z.string().min(5), //min length
   rating: z.string().optional(), //optional stuff
 });
